@@ -37,5 +37,29 @@
 #
 class role_collectd {
 
+# Install collectd
+  class { 'collectd':
+    purge        => true,
+    recurse      => true,
+    purge_config => true,
+  }
+
+# Install and configure plugins
+  class { 'collectd::plugin::network':
+    server => '127.0.0.1',
+  }
+
+  class { 'collectd::plugin::load':
+  }
+
+  #class { 'collectd::plugin::cpu':
+  }
+
+  class { 'collectd::plugin::memory':
+  }
+
+  class { 'collectd::plugin::disk':
+    disks => ['dm-2'],
+  }
 
 }
