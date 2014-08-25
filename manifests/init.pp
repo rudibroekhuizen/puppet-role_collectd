@@ -49,9 +49,6 @@ class role_collectd {
   class { 'collectd::plugin::load':
   }
 
-  #class { 'collectd::plugin::cpu':
-  #}
-
   class { 'collectd::plugin::memory':
   }
 
