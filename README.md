@@ -15,9 +15,7 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+Install and configure collectd.
 
 ## Module Description
 
@@ -38,10 +36,9 @@ management, etc.) this is the time to mention it.
 * This is a great place to stick any warnings.
 * Can be in list or paragraph form.
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+pdxcat-collectd
 
 ### Beginning with role_collectd
 
