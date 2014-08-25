@@ -45,10 +45,7 @@ class role_collectd {
   }
 
 # Install and configure plugins
-  class { 'collectd::plugin::network':
-    server => '127.0.0.1',
-  }
-
+  
   class { 'collectd::plugin::load':
   }
 
@@ -60,6 +57,11 @@ class role_collectd {
 
   class { 'collectd::plugin::disk':
     disks => ['dm-2'],
+  }
+
+# Output to Logstash
+  class { 'collectd::plugin::network':
+    server => 'localhost',
   }
 
 }
