@@ -53,7 +53,7 @@ class role_collectd {
   }
 
   #class { 'collectd::plugin::cpu':
-  }
+  #}
 
   class { 'collectd::plugin::memory':
   }
