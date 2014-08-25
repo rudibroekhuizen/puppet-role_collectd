@@ -45,7 +45,6 @@ class role_collectd {
   }
 
 # Install and configure plugins
-  
   class { 'collectd::plugin::load':
   }
 
