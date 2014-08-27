@@ -37,11 +37,16 @@
 #
 class role_collectd {
 
+# Add latest ppa for latest version
+  apt::ppa { 'ppa:croscondevops/collectd-latest': 
+  }
+
 # Install collectd
   class { 'collectd':
     purge        => true,
     recurse      => true,
     purge_config => true,
+    require      => Apt::Ppa['ppa:croscondevops/collectd-latest'],
   }
 
 # Install and configure plugins
