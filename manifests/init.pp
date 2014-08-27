@@ -37,7 +37,7 @@
 #
 class role_collectd {
 
-# Add latest ppa for latest version
+# Add latest ppa for latest version, only works on Ubuntu 12.04
   apt::ppa { 'ppa:croscondevops/collectd-latest': 
   }
 
