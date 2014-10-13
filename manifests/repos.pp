@@ -4,9 +4,14 @@ class role_collectd::repos {
 
   case $::osfamily {
     debian: {
-      # Add ppa for latest version, only works on Ubuntu 12.04
-      include apt
-      apt::ppa { 'ppa:croscondevops/collectd-latest': 
+      case $::lsbdistcodename {
+        precise: { include apt
+                   apt::ppa { 'ppa:croscondevops/collectd-latest': 
+                   }
+                 }
+        default: { fail( "Repository does not support ${::lsbdistcodename}" )
+                 }
+        }
       }
     }
     
