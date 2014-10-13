@@ -37,8 +37,17 @@
 #
 class role_collectd {
 
-# Add ppa for latest version, only works on Ubuntu 12.04
-  apt::ppa { 'ppa:croscondevops/collectd-latest': 
+  case $::osfamily {
+    debian:{
+    
+      # Add ppa for latest version, only works on Ubuntu 12.04
+        apt::ppa { 'ppa:croscondevops/collectd-latest': 
+      }
+    }
+    
+    redhat: {
+      notify { "continue": }
+    }
   }
 
 # Install collectd
@@ -61,8 +70,8 @@ class role_collectd {
   }
 
 # Output to Logstash
-  class { 'collectd::plugin::network':
-    server => 'localhost',
-  }
+# class { 'collectd::plugin::network':
+#   server => 'localhost',
+# }
 
 }
