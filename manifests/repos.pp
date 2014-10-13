@@ -1,6 +1,6 @@
-# == Class: base::repos
+# == Class: role_collectd::repos
 #
-class base::repos {
+class role_collectd::repos {
 
   case $::osfamily {
     debian: {
