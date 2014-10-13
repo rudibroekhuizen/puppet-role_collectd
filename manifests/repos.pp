@@ -13,7 +13,7 @@ class role_collectd::repos {
                  }
         }
       }
-    }
+    
     
     redhat: {
       notify { "continue": 
