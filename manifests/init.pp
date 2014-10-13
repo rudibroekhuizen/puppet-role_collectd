@@ -38,15 +38,14 @@
 class role_collectd {
 
 # Add ppa for latest version, only works on Ubuntu 12.04
-  apt::ppa { 'ppa:croscondevops/collectd-latest': 
-  }
+# apt::ppa { 'ppa:croscondevops/collectd-latest': 
+# }
 
 # Install collectd
   class { 'collectd':
     purge        => true,
     recurse      => true,
     purge_config => true,
-    require      => Apt::Ppa['ppa:croscondevops/collectd-latest'],
   }
 
 # Install and configure plugins
