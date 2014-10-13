@@ -41,13 +41,15 @@ class role_collectd {
     debian:{
     
       # Add ppa for latest version, only works on Ubuntu 12.04
-        apt::ppa { 'ppa:croscondevops/collectd-latest': 
+      apt::ppa { 'ppa:croscondevops/collectd-latest': 
       }
     }
     
     redhat: {
-      notify { "continue": }
+      notify { "continue": 
+      }
     }
+  
   }
 
 # Install collectd
