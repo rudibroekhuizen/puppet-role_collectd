@@ -9,7 +9,7 @@ class role_collectd::repos {
                    apt::ppa { 'ppa:croscondevops/collectd-latest': 
                    }
                  }
-        default: { fail( "Repository does not support ${::lsbdistcodename}" )
+        default: { 
                  }
         }
       }
