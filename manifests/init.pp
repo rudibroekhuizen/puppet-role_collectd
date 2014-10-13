@@ -37,19 +37,8 @@
 #
 class role_collectd {
 
-  case $::osfamily {
-    debian:{
-    
-      # Add ppa for latest version, only works on Ubuntu 12.04
-      apt::ppa { 'ppa:croscondevops/collectd-latest': 
-      }
-    }
-    
-    redhat: {
-      notify { "continue": 
-      }
-    }
-  
+# Add latest repos if availabla
+  class { 'role_collectd::repos':
   }
 
 # Install collectd
@@ -57,7 +46,7 @@ class role_collectd {
     purge        => true,
     recurse      => true,
     purge_config => true,
-    require      => Apt::Ppa['ppa:croscondevops/collectd-latest'],
+    require      => Class ['role_collectd::repos'],
   }
 
 # Install and configure plugins
