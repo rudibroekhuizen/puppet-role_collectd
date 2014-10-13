@@ -51,13 +51,16 @@ class role_collectd {
 
 # Install and configure plugins
   class { 'collectd::plugin::load':
+    require  => Class ['collectd'],
   }
 
   class { 'collectd::plugin::memory':
+    require  => Class ['collectd'],
   }
 
   class { 'collectd::plugin::disk':
     disks => ['dm-2'],
+    require  => Class ['collectd'],
   }
 
 # Output to Logstash
