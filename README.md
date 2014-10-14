@@ -63,7 +63,10 @@ with things. (We are working on automating this section!)
 
 ## Limitations
 
-Ubuntu 12.04
+Tested with:
+*  Ubuntu 12.04
+*  Ubuntu 14.04
+*  Centos 6.4
 
 ## Development
 
