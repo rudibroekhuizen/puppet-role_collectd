@@ -42,9 +42,7 @@ class role_collectd {
   }
 
 # Overrule service_name
-# class { 'collectd::params':
-#   service_name => 'collectd5',
-# }
+  Class <| title == 'collectd::params' |> { service_name => 'collectd5' }
 
 # Install collectd
   class { 'collectd':
@@ -52,8 +50,7 @@ class role_collectd {
     purge        => true,
     recurse      => true,
     purge_config => true,
-    require      => Class [['role_collectd::repos'],
-                           ['collectd::params']],
+    require      => Class ['role_collectd::repos'],
   }
 
 # Install and configure plugins
