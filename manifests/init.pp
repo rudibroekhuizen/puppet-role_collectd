@@ -43,7 +43,7 @@ class role_collectd {
 
 # Overrule service_name
   class { 'collectd::params':
-    service_name = 'collectd5',
+    service_name => 'collectd5',
   }
 
 # Install collectd
