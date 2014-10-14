@@ -15,7 +15,7 @@
 
 ## Overview
 
-Install and configure collectd.
+Install and configure collectd version 5 on Ubuntu and Centos.
 
 ## Module Description
 
@@ -38,7 +38,8 @@ management, etc.) this is the time to mention it.
 
 ### Setup Requirements
 
-pdxcat-collectd
+*  pdxcat-collectd
+*  gbrown/yumrepos
 
 ### Beginning with role_collectd
 
