@@ -42,7 +42,7 @@ class role_collectd {
   }
 
 # Overrule service_name
-  Class <| title == 'collectd::params' |> { service_name => 'collectd5' }
+  Class <| title == 'collectd' |> { service_name => 'collectd5' }
 
 # Install collectd
   class { 'collectd':
