@@ -43,6 +43,7 @@ class role_collectd {
 
 # Install collectd
   class { 'collectd':
+    package_name => collectd5,
     purge        => true,
     recurse      => true,
     purge_config => true,
