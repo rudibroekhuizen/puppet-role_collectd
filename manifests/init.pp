@@ -41,10 +41,10 @@ class role_collectd {
   class { 'role_collectd::repos':
   }
 
-# Overrule service_name using resource collector
+# Overrule service_name from inherits collectd::params using resource collector
   Service <| title == 'collectd' |> { name => 'collectd5' }
 
-# Overrule file name collectd.conf using resource collector
+# Overrule file name collectd.conf from inherits collectd::params using resource collector
   File <| title == 'collectd.conf' |> { path => '/etc/collectd5.conf' }
 
 # Install collectd
