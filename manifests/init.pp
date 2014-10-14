@@ -35,9 +35,7 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class role_collectd (
-  $service_name = 'collectd5',
-  ){
+class role_collectd {
 
 # Add latest repos if availabla
   class { 'role_collectd::repos':
