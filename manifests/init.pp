@@ -41,22 +41,35 @@ class role_collectd {
   class { 'role_collectd::repos':
   }
 
-# Overrule service_name from inherits collectd::params using resource collector
-  Service <| title == 'collectd' |> { name => 'collectd5' }
+  case $::osfamily {
+    debian: {
+      class { 'collectd':
+        purge        => true,
+        recurse      => true,
+        purge_config => true,
+        require      => Class ['role_collectd::repos'],
+      }    
+    }
+    
+    redhat: {
+    # Overrule service_name from inherits collectd::params using resource collector
+      Service <| title == 'collectd' |> { name => 'collectd5' }
 
-# Overrule file name collectd.conf from inherits collectd::params using resource collector
-  File <| title == 'collectd.conf' |> { path => '/etc/collectd5.conf' }
+    # Overrule file name collectd.conf from inherits collectd::params using resource collector
+      File <| title == 'collectd.conf' |> { path => '/etc/collectd5.conf' }
 
-# Install collectd
-  class { 'collectd':
-    package_name => 'collectd5',
-    purge        => true,
-    recurse      => true,
-    purge_config => true,
-    require      => Class ['role_collectd::repos'],
+    # Install collectd
+      class { 'collectd':
+        package_name => 'collectd5',
+        purge        => true,
+        recurse      => true,
+        purge_config => true,
+        require      => Class ['role_collectd::repos'],
+      }
+    }
   }
 
-# Install and configure plugins
+  # Install and configure plugins
   class { 'collectd::plugin::load':
   }
 
