@@ -83,7 +83,7 @@ class role_collectd {
   # Output to Logstash
   class { 'collectd::plugin::network':
     servers => { 'localhost' => { 'port' => '25826', 
-                               },
+                                },
                }
   }
 
