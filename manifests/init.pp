@@ -80,9 +80,11 @@ class role_collectd {
     disks => ['dm-2'],
   }
 
-# Output to Logstash
-# class { 'collectd::plugin::network':
-#   server => 'localhost',
-# }
+  # Output to Logstash
+  class { 'collectd::plugin::network':
+    servers => { 'localhost' => { 'port' => '25826', 
+                               },
+               }
+  }
 
 }
