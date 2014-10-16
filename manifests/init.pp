@@ -69,7 +69,7 @@ class role_collectd {
     }
   }
 
-  # Install and configure plugins
+  # Install and configure plugins including output to logstash
   class { 'collectd::plugin::load':
   }
 
