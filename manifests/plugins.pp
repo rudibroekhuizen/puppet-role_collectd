@@ -1,4 +1,7 @@
-# Install and configure plugins including output to logstash
+# == Class: role_collectd::plugins
+#
+class role_collectd::plugins {
+
   class { 'collectd::plugin::load':
   }
 
@@ -15,3 +18,5 @@
                                 },
                }
   }
+
+}
