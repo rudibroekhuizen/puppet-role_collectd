@@ -37,7 +37,7 @@
 #
 class role_collectd {
 
-# Add repos for collectd version 5
+  # Add repos for collectd version 5
   class { 'role_collectd::repos':
   }
 
