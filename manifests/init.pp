@@ -71,7 +71,7 @@ class role_collectd {
 
   # Install collectd plugins
   class { 'role_collectd::plugins':
-    require => Class ['role_collectd::collectd'],
+    require => Class ['collectd'],
   }
 
 }
