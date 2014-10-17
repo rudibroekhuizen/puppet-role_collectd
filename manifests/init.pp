@@ -52,13 +52,13 @@ class role_collectd {
     }
     
     redhat: {
-    # Overrule service_name from inherits collectd::params using resource collector
+      # Overrule service_name from inherits collectd::params using resource collector
       Service <| title == 'collectd' |> { name => 'collectd5' }
 
-    # Overrule file name collectd.conf from inherits collectd::params using resource collector
+      # Overrule file name collectd.conf from inherits collectd::params using resource collector
       File <| title == 'collectd.conf' |> { path => '/etc/collectd5.conf' }
 
-    # Install collectd
+      # Install collectd
       class { 'collectd':
         package_name => 'collectd5',
         purge        => true,
@@ -69,22 +69,9 @@ class role_collectd {
     }
   }
 
-  # Install and configure plugins including output to logstash
-  class { 'collectd::plugin::load':
-  }
-
-  class { 'collectd::plugin::memory':
-  }
-
-  class { 'collectd::plugin::disk':
-    disks => ['dm-2'],
-  }
-
-  # Output to Logstash
-  class { 'collectd::plugin::network':
-    servers => { 'localhost' => { 'port' => '25826', 
-                                },
-               }
+  # Install collectd plugins
+  class { 'role_collectd::plugins':
+    require => Class ['role_collectd::collectd'],
   }
 
 }
