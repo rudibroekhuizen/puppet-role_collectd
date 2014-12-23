@@ -9,7 +9,7 @@ class role_collectd::plugins {
   }
 
   class { 'collectd::plugin::disk':
-    disks => ['dm-2'],
+    disks => ['sdb1'],
   }
   
   class { 'collectd::plugin::df':
