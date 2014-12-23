@@ -21,16 +21,6 @@ class role_collectd::plugins {
   class { 'collectd::plugin::interface':
   }
   
-  class { 'collectd::plugin::network':
-    timetolive    => '70',
-    maxpacketsize => '42',
-    forward       => false,
-    reportstats   => true,
-    servers       => { '127.0.0.1' => { 'port' => '25826',
-                                      },
-                     },
-  }
-    
   class { 'collectd::plugin::logfile':
     log_level => 'info',
     log_file  => '/var/log/collectd.log',
@@ -38,8 +28,12 @@ class role_collectd::plugins {
 
   # Output to Logstash
   class { 'collectd::plugin::network':
-    servers => { 'localhost' => { 'port' => '25826', 
-                                },
-               },
+    timetolive    => '70',
+    maxpacketsize => '42',
+    forward       => false,
+    reportstats   => true,
+    servers       => { 'localhost' => { 'port' => '25826',
+                                      },
+                     },
   }
 }
