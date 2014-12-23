@@ -15,9 +15,6 @@ class role_collectd::plugins {
   class { 'collectd::plugin::df':
   }
   
-  class { 'collectd::plugin::uptime':
-  }
-  
   class { 'collectd::plugin::interface':
   }
   
