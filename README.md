@@ -38,7 +38,7 @@ management, etc.) this is the time to mention it.
 
 ### Setup Requirements
 
-*  pdxcat-collectd
+*  pdxcat/collectd
 *  gbrown/yumrepos
 
 ### Beginning with role_collectd
