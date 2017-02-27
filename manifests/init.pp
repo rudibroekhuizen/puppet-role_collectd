@@ -47,7 +47,7 @@ class role_collectd {
         purge        => true,
         recurse      => true,
         purge_config => true,
-        require      => Class ['role_collectd::repos'],
+        require      => Class['role_collectd::repos'],
       }    
     }
     
@@ -64,14 +64,14 @@ class role_collectd {
         purge        => true,
         recurse      => true,
         purge_config => true,
-        require      => Class ['role_collectd::repos'],
+        require      => Class['role_collectd::repos'],
       }
     }
   }
 
   # Install collectd plugins
   class { 'role_collectd::plugins':
-    require => Class ['collectd'],
+    require => Class['collectd'],
   }
 
 }
